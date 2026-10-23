@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FocusFlow | Smart Task Prioritizer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="brand"><div class="logo">F</div><div><h1>FocusFlow</h1><small>Smart Deadline Risk & Task Prioritization</small></div></div>
+  <button id="themeBtn">☾</button>
+</header>
+
+<main>
+<section class="hero">
+  <div>
+    <p class="eyebrow">STUDENT PRODUCTIVITY SYSTEM</p>
+    <h2>Know what deserves your attention <span>right now.</span></h2>
+    <p class="heroText">FocusFlow calculates a Deadline Pressure Score using urgency, workload, importance and progress, then recommends what to work on first.</p>
+  </div>
+  <div class="heroCard"><strong id="heroScore">--</strong><div><b>Current pressure</b><p id="heroMessage">Add your first task to begin.</p></div></div>
+</section>
+
+<section class="stats">
+  <div><span>Total Tasks</span><b id="total">0</b></div>
+  <div><span>High Risk</span><b id="high">0</b></div>
+  <div><span>Due Soon</span><b id="soon">0</b></div>
+  <div><span>Completed</span><b id="done">0</b></div>
+</section>
+
+<section class="panel">
+  <div class="heading"><div><p class="eyebrow">TASK INTAKE</p><h3>Add a task</h3></div><button id="sample" class="secondary">Load sample data</button></div>
+  <form id="form">
+    <div class="grid">
+      <label>Task name<input id="name" required placeholder="e.g. DBMS mini project"></label>
+      <label>Deadline<input id="deadline" type="datetime-local" required></label>
+      <label>Estimated effort<select id="effort"><option value="1">Low — under 2 hours</option><option value="2" selected>Medium — 2 to 5 hours</option><option value="3">High — 5+ hours</option></select></label>
+      <label>Importance<select id="importance"><option value="1">Low</option><option value="2" selected>Medium</option><option value="3">High</option><option value="4">Critical</option></select></label>
+      <label>Current progress<div class="range"><input id="progress" type="range" min="0" max="100" value="0"><output id="pv">0%</output></div></label>
+      <label>Category<select id="category"><option>Academics</option><option>Project</option><option>Placement</option><option>Personal</option><option>Other</option></select></label>
+    </div>
+    <button class="primary">＋ Add to FocusFlow</button>
+  </form>
+</section>
+
+<section class="panel">
+<div class="heading"><div><p class="eyebrow">LIVE PRIORITY ENGINE</p><h3>What should you work on first?</h3></div>
+<div class="tools"><select id="filter"><option value="all">All tasks</option><option value="high">High risk</option><option value="soon">Due soon</option><option value="completed">Completed</option></select><button id="export" class="secondary">Export CSV</button><button id="clear" class="danger">Clear all</button></div></div>
+<div id="recommendation" class="recommendation hidden"></div>
+<div id="list"></div>
+<div id="empty" class="empty"><div>◎</div><h4>No tasks yet</h4><p>Add a task and FocusFlow will calculate its risk automatically.</p></div>
+</section>
+
+<section class="info">
+<div><b>01 — Deadline Pressure Score</b><p>Combines urgency, remaining workload, importance and progress into a 0–100 risk score.</p></div>
+<div><b>02 — Explainable Priority</b><p>Shows why a task is risky instead of only displaying a priority label.</p></div>
+<div><b>03 — Local-first Privacy</b><p>Task data stays in the browser using localStorage. No account is required.</p></div>
+</section>
+</main>
+<footer>FocusFlow • AWS-ready student mini project</footer>
+<script src="script.js"></script>
+</body>
+</html>
